@@ -61,7 +61,7 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
       style={style}
     >
       <div className="w-full flex justify-between items-start">
-        <Link to={`/jobs/${job.id}`}>
+        <Link to={`/jobs/${job.jobId}`}>
           <h2
             className="text-xl font-semibold mb-1 "
             {...attributes}
