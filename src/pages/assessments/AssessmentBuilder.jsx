@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { useEffect } from "react";
 
 const QUESTION_TYPES = [
   "single-choice",
@@ -19,6 +20,25 @@ const AssessmentBuilder = () => {
   const theme = useSelector((state) => state.theme.value);
   const { jobId } = useParams(); // for update
   const navigate = useNavigate();
+  const [assessmentTitle, setAssessmentTitle] = useState("");
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const res = await axios.get("/jobsAndId");
+        
+
+        // If a job is already selected, auto-set assessment title
+        if (jobId) {
+          const job = res.data.jobs.find((j) => j.jobId === jobId);
+          if (job) setAssessmentTitle(`${job.title}`);
+        }
+      } catch (err) {
+        console.error("Error fetching jobs:", err);
+      }
+    };
+    fetchJobs();
+  }, []);
 
   const addSection = () => {
     setSections((prev) => [
@@ -77,29 +97,34 @@ const AssessmentBuilder = () => {
   };
 
   const handleSubmit = async () => {
-    const hasEmptyQuestions = sections.some(
-      (section) =>
-        !section.title ||
-        section.questions.some(
-          (q) =>
-            !q.text || (q.type.includes("choice") && q.options.length === 0)
-        )
-    );
 
-    if (hasEmptyQuestions) {
-      alert(
-        "Please fill in all section titles and question texts/options before submitting."
-      );
-      return;
-    }
+    // const hasEmptyQuestions = sections.some(
+    //   (section) =>
+    //     !section.title ||
+    //     section.questions.some(
+    //       (q) =>
+    //         !q.text || (q.type.includes("choice") && q.options.length === 0)
+    //     )
+    // );
+
+    // if (hasEmptyQuestions) {
+    //   alert(
+    //     "Please fill in all section titles and question texts/options before submitting."
+    //   );
+    //   return;
+    // }
+
+    console.log(assessmentTitle)
 
     try {
-
       const payload = {
         assessmentId: uuidv4(),
         jobId,
         sections,
+        title: assessmentTitle,
       };
+
+      console.log("payload    ", payload);
 
       const res = await axios.post("/assessments/created", payload);
 

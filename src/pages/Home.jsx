@@ -153,9 +153,11 @@ const Home = () => {
             <div className="flex gap-4">
               <button
                 className={btnPrimary(theme)}
-                onClick={() => setShowPopup(true)}
+                // onClick={() => setShowPopup(true)}
+                onClick={() => navigate("/assessments")}
+
               >
-                Create Assessment
+                View Assessment
               </button>
             </div>
           </div>

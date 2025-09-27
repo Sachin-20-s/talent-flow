@@ -18,11 +18,12 @@ const AllAssessments = () => {
           axios.get("/jobsAndId"),
         ]);
 
-        // Deduplicate assessments by title
+        // Deduplicate assessments by assessmentId
         const uniqueAssessmentsMap = new Map();
         assessmentsRes.data.assessments.forEach((a) => {
-          if (!uniqueAssessmentsMap.has(a.assessmentId))
+          if (!uniqueAssessmentsMap.has(a.assessmentId)) {
             uniqueAssessmentsMap.set(a.assessmentId, a);
+          }
         });
         setAssessments(Array.from(uniqueAssessmentsMap.values()));
 
@@ -37,19 +38,24 @@ const AllAssessments = () => {
   }, []);
 
   // Filter assessments by selected jobId
-  const filteredAssessments = selectedJobId
-    ? assessments.filter((a) => a.jobId === (selectedJobId))
-    : assessments;
+  console.log("selctedJobId   ",selectedJobId);
+  const filteredAssessments = assessments.filter(a => {
+  
+  if (!selectedJobId) return true;
+  
+  return a.jobId === selectedJobId;
+});
+
+
+  console.log("filter     ",filteredAssessments)
 
   return (
     <div
       className={`p-6 min-h-[90vh] ${
-        theme === "dark"
-          ? "bg-gray-900 text-white"
-          : "bg-gray-100 text-gray-900"
+        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       }`}
     >
-      <h2 className="text-2xl font-bold mb-2 text-center">All Assessments</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">All Assessments</h2>
 
       <div className="flex flex-wrap items-center gap-4 mb-6">
         <label className="font-medium">Select a Job:</label>
@@ -57,18 +63,19 @@ const AllAssessments = () => {
           className={`p-2 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
             theme === "dark"
               ? "bg-gray-800 border-gray-600 text-white"
-              : "bg-white border-gray-300"
+              : "bg-white border-gray-300 text-gray-900"
           }`}
           value={selectedJobId}
           onChange={(e) => setSelectedJobId(e.target.value)}
         >
           <option value="">-- All Jobs --</option>
           {jobs.map((job) => (
-            <option key={job.id} value={job.id}>
+            <option key={job.jobId} value={job.jobId}>
               {job.title}
             </option>
           ))}
         </select>
+
         {selectedJobId && (
           <button
             className="ml-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
@@ -87,7 +94,7 @@ const AllAssessments = () => {
         <div className="max-h-[70vh] overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredAssessments.map((assessment) => (
             <a
-              key={assessment.id}
+              key={assessment.assessmentId}
               href={`/assessments/${assessment.assessmentId}`}
               className={`p-4 rounded-lg border hover:shadow-lg transition transform hover:-translate-y-1 ${
                 theme === "dark"
@@ -95,7 +102,7 @@ const AllAssessments = () => {
                   : "bg-white border-gray-300 text-gray-900"
               }`}
             >
-              <h3 className="text-lg font-semibold mb-2">{assessment.title}</h3>
+              <h3 className="text-lg font-semibold mb-2">{`${assessment.title} #${Math.floor(Math.random() * 6) + 1}`}</h3>
               <p className="text-sm text-gray-400">
                 {assessment.sections.length} Sections
               </p>

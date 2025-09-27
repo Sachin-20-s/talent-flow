@@ -4,8 +4,8 @@ export const jobAssessments = [
   // Frontend Developer
   ...[1,2,3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-    jobId: 1,
-    title: `Frontend Developer Assessment ${assessmentNum}`,
+    jobId: "1",
+    title: `Frontend Developer Assessment`,
     sections: [
       {
         title: "Section 1",
@@ -63,9 +63,9 @@ export const jobAssessments = [
   // Backend Developer
   ...[1,2,3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-    jobId: 2,
+    jobId: "2",
     
-    title: `Backend Developer Assessment ${assessmentNum}`,
+    title: `Backend Developer Assessment`,
     sections: [
       {
         title: "Section 1",
@@ -123,9 +123,9 @@ export const jobAssessments = [
   // Fullstack Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 3,
+  jobId: "3",
 
-  title: `Fullstack Developer Assessment ${assessmentNum}`,
+  title: `Fullstack Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -183,8 +183,8 @@ export const jobAssessments = [
 // React Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 4,
-  title: `React Developer Assessment ${assessmentNum}`,
+  jobId: "4",
+  title: `React Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -242,8 +242,8 @@ export const jobAssessments = [
 // Node.js Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 5,
-  title: `Node.js Developer Assessment ${assessmentNum}`,
+  jobId: "5",
+  title: `Node.js Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -301,8 +301,8 @@ export const jobAssessments = [
 // Python Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 6,
-  title: `Python Developer Assessment ${assessmentNum}`,
+  jobId: "6",
+  title: `Python Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -360,8 +360,8 @@ export const jobAssessments = [
 // Java Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 7,
-  title: `Java Developer Assessment ${assessmentNum}`,
+  jobId: "7",
+  title: `Java Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -419,8 +419,8 @@ export const jobAssessments = [
 // Android Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 8,
-  title: `Android Developer Assessment ${assessmentNum}`,
+  jobId: "8",
+  title: `Android Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -478,8 +478,8 @@ export const jobAssessments = [
 // iOS Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 9,
-  title: `iOS Developer Assessment ${assessmentNum}`,
+  jobId: "9",
+  title: `iOS Developer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -537,8 +537,8 @@ export const jobAssessments = [
 // Data Scientist
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 10,
-  title: `Data Scientist Assessment ${assessmentNum}`,
+  jobId: "10",
+  title: `Data Scientist Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -596,8 +596,8 @@ export const jobAssessments = [
 // Machine Learning Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 11,
-  title: `ML Engineer Assessment ${assessmentNum}`,
+  jobId: "11",
+  title: `ML Engineer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -655,8 +655,8 @@ export const jobAssessments = [
 // DevOps Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 12,
-  title: `DevOps Engineer Assessment ${assessmentNum}`,
+  jobId: "12",
+  title: `DevOps Engineer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -714,8 +714,8 @@ export const jobAssessments = [
 // Cloud Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 13,
-  title: `Cloud Engineer Assessment ${assessmentNum}`,
+  jobId: "13",
+  title: `Cloud Engineer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -773,8 +773,8 @@ export const jobAssessments = [
 // UI/UX Designer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 14,
-  title: `UI/UX Designer Assessment ${assessmentNum}`,
+  jobId: "14",
+  title: `UI/UX Designer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -812,8 +812,8 @@ export const jobAssessments = [
 // Product Manager
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 15,
-  title: `Product Manager Assessment ${assessmentNum}`,
+  jobId: "15",
+  title: `Product Manager Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -841,8 +841,8 @@ export const jobAssessments = [
 // Project Manager
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 16,
-  title: `Project Manager Assessment ${assessmentNum}`,
+  jobId: "16",
+  title: `Project Manager Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -870,8 +870,8 @@ export const jobAssessments = [
 // QA Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 17,
-  title: `QA Engineer Assessment ${assessmentNum}`,
+  jobId: "17",
+  title: `QA Engineer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -899,8 +899,8 @@ export const jobAssessments = [
 // Software Tester
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 18,
-  title: `Software Tester Assessment ${assessmentNum}`,
+  jobId: "18",
+  title: `Software Tester Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -928,8 +928,8 @@ export const jobAssessments = [
 // Business Analyst
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 19,
-  title: `Business Analyst Assessment ${assessmentNum}`,
+  jobId: "19",
+  title: `Business Analyst Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -957,8 +957,8 @@ export const jobAssessments = [
 // Technical Writer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 20,
-  title: `Technical Writer Assessment ${assessmentNum}`,
+  jobId: "20",
+  title: `Technical Writer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -986,8 +986,8 @@ export const jobAssessments = [
 // System Administrator
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 21,
-  title: `System Administrator Assessment ${assessmentNum}`,
+  jobId: "21",
+  title: `System Administrator Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -1015,8 +1015,8 @@ export const jobAssessments = [
 // Network Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 22,
-  title: `Network Engineer Assessment ${assessmentNum}`,
+  jobId: "22",
+  title: `Network Engineer Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -1044,8 +1044,8 @@ export const jobAssessments = [
 // Cybersecurity Analyst
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 23,
-  title: `Cybersecurity Analyst Assessment ${assessmentNum}`,
+  jobId: "23",
+  title: `Cybersecurity Analyst Assessment `,
   sections: [
     {
       title: "Section 1",
@@ -1073,8 +1073,8 @@ export const jobAssessments = [
 // Blockchain Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 24,
-  title: `Blockchain Developer Assessment ${assessmentNum}`,
+  jobId: "24",
+  title: `Blockchain Developer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1090,8 +1090,8 @@ export const jobAssessments = [
 // AI Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 25,
-  title: `AI Engineer Assessment ${assessmentNum}`,
+  jobId: "25",
+  title: `AI Engineer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1107,8 +1107,8 @@ export const jobAssessments = [
 // Game Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 26,
-  title: `Game Developer Assessment ${assessmentNum}`,
+  jobId: "26",
+  title: `Game Developer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1124,8 +1124,8 @@ export const jobAssessments = [
 // Embedded Systems Engineer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 27,
-  title: `Embedded Systems Engineer Assessment ${assessmentNum}`,
+  jobId: "27",
+  title: `Embedded Systems Engineer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1141,8 +1141,8 @@ export const jobAssessments = [
 // AR/VR Developer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 28,
-  title: `AR/VR Developer Assessment ${assessmentNum}`,
+  jobId: "28",
+  title: `AR/VR Developer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1158,8 +1158,8 @@ export const jobAssessments = [
 // Mobile App Designer
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 29,
-  title: `Mobile App Designer Assessment ${assessmentNum}`,
+  jobId: "29",
+  title: `Mobile App Designer Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [
@@ -1175,8 +1175,8 @@ export const jobAssessments = [
 // SEO Specialist
 ...[1, 2, 3].map((assessmentNum) => ({
     assessmentId: uuidv4(),
-  jobId: 30,
-  title: `SEO Specialist Assessment ${assessmentNum}`,
+  jobId: "30",
+  title: `SEO Specialist Assessment `,
   sections: Array.from({ length: 5 }, (_, i) => ({
     title: `Section ${i + 1}`,
     questions: [

@@ -55,6 +55,13 @@ const JobEditForm = ({ job, theme, onSave, onCancel, allJobs }) => {
     }
   `}
     >
+      <button
+          type="submit"
+          onClick={(e) => {e.preventDefault();navigate(-1,{replace:true})}}
+          className="px-6 py-3 rounded-lg bg-red-400 text-white"
+        >
+          Cancel
+        </button>
       <div>
         <label
           className={`block text-sm font-semibold mb-1 ${

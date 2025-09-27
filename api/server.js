@@ -43,15 +43,15 @@ export function makeServer() {
             .equals(jobId)
             .toArray();
 
-          const job = await db.jobs.get(jobId);
-          const jobTitle = job ? job.title : "Job";
+          
+          const jobTitle = newAssessment.title
 
           const counter = existing.length + 1;
 
           const assessmentWithTitle = {
             ...newAssessment,
             jobId, // store as number
-            title: `${jobTitle} Assessment ${counter}`,
+            title: `${jobTitle}`,
           };
 
           await db.assessments.add(assessmentWithTitle);

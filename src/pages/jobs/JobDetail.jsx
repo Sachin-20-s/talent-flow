@@ -29,7 +29,7 @@ const JobDetail = () => {
 
         // Filter for jobId
         setAssessments(
-          datap.assessments.filter((a) => a.jobId === Number(jobId))
+          datap.assessments.filter((a) => a.jobId === (jobId))
         );
       } catch (err) {
         console.error("Failed to fetch jobs:", err);

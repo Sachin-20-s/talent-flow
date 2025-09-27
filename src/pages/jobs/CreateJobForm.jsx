@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4} from "uuid";
 
 const CreateJobForm = ({ allJobs, onSave, onCancel }) => {
   const theme = useSelector((state) => state.theme.value);
   const [formData, setFormData] = useState({
-    jobId: allJobs.length + 1,
+    jobId: uuidv4(),
     title: "",
     slug: "",
     status: "archived",
@@ -48,7 +49,7 @@ const CreateJobForm = ({ allJobs, onSave, onCancel }) => {
     e.preventDefault();
     onSave(formData);
     if (redirectToAssessment) {
-      navigate("/assessments/builder");
+      navigate("/assessments");
     }
   };
 
@@ -159,7 +160,7 @@ const CreateJobForm = ({ allJobs, onSave, onCancel }) => {
         </button>
         <button
           type="submit"
-          onClick={onCancel}
+          onClick={(e) => {e.preventDefault();navigate(-1,{replace:true})}}
           className="px-6 py-3 rounded-lg bg-red-500 text-white"
         >
           Cancel

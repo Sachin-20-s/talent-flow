@@ -10,9 +10,13 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+  const confirmed = window.confirm("Are you sure you want to logout?");
+  if (confirmed) {
     localStorage.removeItem("validUser");
     navigate("/login", { replace: true });
-  };
+  }
+};
+
 
   return (
     <nav

@@ -46,7 +46,6 @@ const Jobs = () => {
       }
       return job;
     });
-    setJobs(updatedJobs); 
 
     
     try {
@@ -55,7 +54,9 @@ const Jobs = () => {
       if (dbJob) {
         await db.jobs.update(dbJob.id, {
           status: updatedJobs.find((j) => j.jobId === jobId).status,
+          
         });
+        fetchJobs()
       }
     } catch (err) {
       console.error("Failed to update job in Dexie:", err);
