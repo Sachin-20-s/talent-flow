@@ -173,7 +173,6 @@
 
 // export default AssessmentPreview;
 
-
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
@@ -206,7 +205,8 @@ const AssessmentPreview = () => {
   }, [assessmentId]);
 
   const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete this assessment?")) return;
+    if (!window.confirm("Are you sure you want to delete this assessment?"))
+      return;
 
     try {
       await axios.delete(`/assessments/${assessmentId}`);
@@ -219,21 +219,31 @@ const AssessmentPreview = () => {
   };
 
   if (loading) {
-    return <div className="flex items-center justify-center h-screen">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
   }
 
   if (!assessment) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-red-500 font-semibold text-lg">Assessment not found</p>
+        <p className="text-red-500 font-semibold text-lg">
+          Assessment not found
+        </p>
       </div>
     );
   }
 
   return (
-    <div className={`p-6 max-h-[90vh] overflow-y-auto space-y-6 ${
-      theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-    }`}>
+    <div
+      className={`p-6 max-h-[90vh] overflow-y-auto space-y-6 ${
+        theme === "dark"
+          ? "bg-gray-900 text-white"
+          : "bg-gray-100 text-gray-900"
+      }`}
+    >
       <div className="flex items-center justify-center gap-4 mb-6">
         <h1 className="text-3xl font-extrabold">{assessment.title}</h1>
         <button
@@ -258,11 +268,13 @@ const AssessmentPreview = () => {
       </div>
 
       <div className="w-[70vw] m-auto max-h-[75vh] overflow-y-auto space-y-6">
-        {assessment.sections?.map((section, sIdx) => (
+        {assessment.sections.map((section) => (
           <div
-            key={sIdx}
+            key={section.id || section.title}
             className={`p-6 rounded-xl shadow-md ${
-              theme === "dark" ? "bg-gray-800 shadow-gray-700" : "bg-white shadow-gray-300"
+              theme === "dark"
+                ? "bg-gray-800 shadow-gray-700"
+                : "bg-white shadow-gray-300"
             }`}
           >
             <h2 className="text-2xl font-semibold mb-4 border-b pb-2 border-gray-400">
@@ -270,11 +282,13 @@ const AssessmentPreview = () => {
             </h2>
 
             <div className="space-y-4">
-              {section.questions?.map((q, qIdx) => (
+              {section.questions.map((q) => (
                 <div
-                  key={qIdx}
+                  key={q.id || q.text}
                   className={`p-3 rounded-lg border ${
-                    theme === "dark" ? "border-gray-700 bg-gray-900" : "border-gray-200 bg-gray-50"
+                    theme === "dark"
+                      ? "border-gray-700 bg-gray-900"
+                      : "border-gray-200 bg-gray-50"
                   }`}
                 >
                   <label className="font-medium mb-2 block">{q.text}</label>
@@ -302,7 +316,9 @@ const AssessmentPreview = () => {
                     <input
                       type="text"
                       className={`border rounded p-2 w-full mt-1 ${
-                        theme === "dark" ? "bg-gray-800 border-gray-700 text-white" : "bg-white border-gray-300 text-black"
+                        theme === "dark"
+                          ? "bg-gray-800 border-gray-700 text-white"
+                          : "bg-white border-gray-300 text-black"
                       }`}
                       placeholder="Answer here..."
                     />
@@ -313,7 +329,9 @@ const AssessmentPreview = () => {
                     <textarea
                       rows={4}
                       className={`border rounded p-2 w-full mt-1 ${
-                        theme === "dark" ? "bg-gray-800 border-gray-700 text-white" : "bg-white border-gray-300 text-black"
+                        theme === "dark"
+                          ? "bg-gray-800 border-gray-700 text-white"
+                          : "bg-white border-gray-300 text-black"
                       }`}
                       placeholder="Answer here..."
                     />
@@ -324,7 +342,9 @@ const AssessmentPreview = () => {
                     <input
                       type="number"
                       className={`border rounded p-2 w-full mt-1 ${
-                        theme === "dark" ? "bg-gray-800 border-gray-700 text-white" : "bg-white border-gray-300 text-black"
+                        theme === "dark"
+                          ? "bg-gray-800 border-gray-700 text-white"
+                          : "bg-white border-gray-300 text-black"
                       }`}
                       placeholder="Enter a number..."
                     />
