@@ -1,0 +1,24 @@
+.nonScrollBar::-webkit-scrollbar {
+  width: 4px;              /* thin scrollbar */
+  height: 4px;             /* for horizontal scroll if any */
+}
+
+.nonScrollBar::-webkit-scrollbar-track {
+  background: transparent; /* track color */
+}
+
+.nonScrollBar::-webkit-scrollbar-thumb {
+  background-color: rgba(237, 229, 229, 0.2); /* subtle, light color */
+  border-radius: 2px;                 /* rounded edges */
+}
+
+.nonScrollBarLight {
+  scrollbar-width: thin;               /* Firefox thin */
+  scrollbar-color: rgba(161, 160, 160, 0.9) transparent; /* Firefox thumb and track */
+}
+
+
+.nonScrollBarDark {
+  scrollbar-width: thin;               /* Firefox thin */
+  scrollbar-color: rgba(244, 242, 242, 0.2) transparent; /* Firefox thumb and track */
+}
