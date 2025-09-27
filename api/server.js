@@ -356,48 +356,45 @@ export function makeServer() {
       this.get("/jobs/:jobId/applicants-summary", async (schema, request) => {
         const jobId = request.params.jobId;
 
-        // Ensure jobs exist
-        let jobs = await db.jobs.toArray();
-        if (jobs.length === 0) {
-          await db.jobs.bulkAdd(jobsData);
-          jobs = await db.jobs.toArray();
-        }
+        // Normalize type
+        const parsedJobId = Number(jobId); // or String(jobId), depending on how you save
 
-        // Get all applicants that applied to this job (jobIds contains jobId)
+        // Get applicants for this job
         let applicants = await db.applicants.toArray();
-        applicants = applicants.filter((a) => a.jobIds.includes(jobId));
+        applicants = applicants.filter((a) => a.jobIds.includes(parsedJobId));
 
-        // Count total, rejected, and selected
-        const total = applicants.length;
-        const rejected = applicants.filter(
-          (a) => a.status === "rejected"
-        ).length;
-        const selected = applicants.filter(
-          (a) => a.status === "shortlisted"
-        ).length;
-        const pending = applicants.filter((a) => a.status === "pending").length;
+        // Build counts dynamically
+        const counts = applicants.reduce(
+          (acc, a) => {
+            acc[a.status] = (acc[a.status] || 0) + 1;
+            return acc;
+          },
+          { total: applicants.length }
+        );
 
         return {
-          jobId,
-          totalApplicants: total,
-          rejectedApplicants: rejected,
-          selectedApplicants: selected,
-          pendingApplicants: pending,
+          jobId: parsedJobId,
+          totalApplicants: counts.total,
+          rejectedApplicants: counts.rejected || 0,
+          selectedApplicants: counts.shortlisted || 0,
+          pendingApplicants: counts.pending || 0,
         };
       });
 
       this.put("/jobs/:jobId", async (schema, request) => {
-        const jobId = request.params.jobId;
-        console.log("hey", jobId);
+        const { jobId } = request.params;
         const updatedJob = JSON.parse(request.requestBody);
 
-        // update in IndexedDB
-        await db.jobs.update(jobId, updatedJob);
+        // find by jobId (not PK)
+        const existing = await db.jobs.get({ jobId });
 
-        // fetch the updated job
-        const job = await db.jobs.get(jobId);
-
-        return { job }; // return as object
+        if (existing) {
+          await db.jobs.update(existing.id, updatedJob); // update by PK
+          const job = await db.jobs.get(existing.id);
+          return { job };
+        } else {
+          return new Response(404, {}, { error: "Job not found" });
+        }
       });
       this.get("/jobs/:jobId", async (schema, request) => {
         let jobs = await db.jobs.toArray();
@@ -442,8 +439,12 @@ export function makeServer() {
         // Filter by search
         let filtered = jobs.filter((job) => {
           const matchesSearch =
-            job.title.toLowerCase().includes((search ?search:"").toLowerCase()) ||
-            job.slug.toLowerCase().includes((search ?search:"").toLowerCase());
+            job.title
+              .toLowerCase()
+              .includes((search ? search : "").toLowerCase()) ||
+            job.slug
+              .toLowerCase()
+              .includes((search ? search : "").toLowerCase());
           const matchesStatus = status ? job.status === status : true;
           return matchesSearch && matchesStatus;
         });

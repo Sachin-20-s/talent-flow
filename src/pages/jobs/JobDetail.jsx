@@ -54,6 +54,7 @@ const JobDetail = () => {
     );
 
   const handleSave = (updatedJob) => {
+    
     fetch(`/jobs/${job.jobId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -61,8 +62,8 @@ const JobDetail = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setJob(data);
+        //console.log("data   ",data.job);
+        setJob(data.job);
         setEditMode(false);
       });
   };
@@ -98,7 +99,7 @@ const JobDetail = () => {
                       : "text-red-500 font-semibold"
                   }
                 >
-                  {job.status.toUpperCase()}
+                  {job?.status?.toUpperCase() ?? ""}
                 </span>
               </p>
 
@@ -111,7 +112,7 @@ const JobDetail = () => {
                 {job.whoCanApply}
               </p>
 
-              {job.assignment && (
+              {/* {job.assignment && (
                 <div className="mb-4">
                   <p className="font-semibold mb-1">Assignment Preview:</p>
                   <a
@@ -123,7 +124,7 @@ const JobDetail = () => {
                     {job.assignment.name}
                   </a>
                 </div>
-              )}
+              )} */}
 
               <p className="mb-6 text-xl text-gray-300 dark:text-gray-400">
                 {job.description}
