@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import "./App.css";
 import JobDetail from "./pages/jobs/JobDetail";
 
+
 const App = () => {
   const jobs = useSelector((state) => state.jobs.value);
   console.log(jobs);

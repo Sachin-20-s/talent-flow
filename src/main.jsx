@@ -8,19 +8,21 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { makeServer } from "../api/server.js";
 import JobsProvider from "./context/Jobsprovider.jsx";
+import ErrorBoundary from "./ErrorBoundary";
 
 // Start Mirage in both dev & production (since you have no real backend)
 if (import.meta.env.DEV || import.meta.env.PROD) {
   makeServer();
 }
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <JobsProvider>
-          <App />
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
         </JobsProvider>
       </BrowserRouter>
     </Provider>
