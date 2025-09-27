@@ -297,7 +297,7 @@ const AssessmentPreview = () => {
                   {q.type === "single-choice" &&
                     q.options?.map((opt, idx) => (
                       <div key={idx} className="flex items-center gap-2 mb-1">
-                        <input type="radio" name={`q${sIdx}_${qIdx}`} />
+                        <input type="radio" name={`q${idx}_${idx}`} />
                         <span>{opt}</span>
                       </div>
                     ))}
