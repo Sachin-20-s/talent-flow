@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setJobs } from "../jbSlice/jobSlice";
 import { useNavigate } from "react-router-dom";
-import AssessmentPopUp from "./assessments/AssessmentPopUp";
 import axios from "axios";
 // import your Redux action
 
@@ -12,7 +11,6 @@ const Home = () => {
   const [stats, setStats] = useState({ total: 0, active: 0, archived: 0 });
   const [applicants, setApplicants] = useState([]);
   const dispatch = useDispatch();
-  const [showPopup, setShowPopup] = useState(false);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
@@ -153,7 +151,6 @@ const Home = () => {
             <div className="flex gap-4">
               <button
                 className={btnPrimary(theme)}
-                // onClick={() => setShowPopup(true)}
                 onClick={() => navigate("/assessments")}
 
               >
@@ -163,11 +160,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {showPopup && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-          <AssessmentPopUp onClose={() => setShowPopup(false)} />
-        </div>
-      )}
     </div>
   );
 };
