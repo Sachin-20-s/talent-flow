@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setJobs } from "../jbSlice/jobSlice";
 import { useNavigate } from "react-router-dom";
-import AssessmentPopup from "./assessments/AssessmentPopUp";
+import AssessmentPopUp from "./assessments/AssessmentPopUp";
 import axios from "axios";
 // import your Redux action
 
@@ -163,7 +163,7 @@ const Home = () => {
       </div>
       {showPopup && (
         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-          <AssessmentPopup onClose={() => setShowPopup(false)} />
+          <AssessmentPopUp onClose={() => setShowPopup(false)} />
         </div>
       )}
     </div>

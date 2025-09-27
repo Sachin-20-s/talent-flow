@@ -6,7 +6,7 @@ import Applicants from "./applicants/Applicants";
 import ApplicantsProfile from "./applicants/applicantsProfile/ApplicantsProfile";
 import CreateJob from "./jobs/CreateJob";
 import AssessmentBuilder from "./assessments/AssessmentBuilder";
-import AssessmentPopup from "./assessments/AssessmentPopUp";
+import AssessmentPopUp from "./assessments/AssessmentPopUp";
 import AllAssessments from "./assessments/AllAssessments";
 import AssessmentPreview from "./assessments/AssessmentPreview";
 import AssessmentEdit from "./assessments/AssessmentEdit";
@@ -20,7 +20,7 @@ export {
   ApplicantsProfile,
   CreateJob,
   AssessmentBuilder,
-  AssessmentPopup,
+  AssessmentPopUp,
   AllAssessments,
   AssessmentPreview,
   AssessmentEdit
