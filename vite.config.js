@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss()],
-  base: process.env.VITE_BASE_PATH || "/talent-flow",
+  // base: process.env.VITE_BASE_PATH || "/talent-flow",
+  base: "/",
   build: {
     outDir: "dist", // Vite default
   },
