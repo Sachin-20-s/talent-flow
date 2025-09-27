@@ -38,7 +38,7 @@ const AllAssessments = () => {
 
   // Filter assessments by selected jobId
   const filteredAssessments = selectedJobId
-    ? assessments.filter((a) => a.jobId === Number(selectedJobId))
+    ? assessments.filter((a) => a.jobId === (selectedJobId))
     : assessments;
 
   return (
