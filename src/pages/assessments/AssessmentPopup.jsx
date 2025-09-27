@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { FaPlus, FaEdit, FaEye } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const AssessmentPopup = ({ onClose }) => {
+const AssessmentPopUp = ({ onClose }) => {
   const theme = useSelector((state) => state.theme.value);
   const navigate = useNavigate();
 
@@ -57,4 +57,4 @@ const AssessmentPopup = ({ onClose }) => {
   );
 };
 
-export default AssessmentPopup;
+export default AssessmentPopUp;
