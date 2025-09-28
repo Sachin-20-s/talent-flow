@@ -5,7 +5,8 @@ import { seedApplicants } from "../src/seedApplication.js";
 import { jobAssessments } from "../src/jobAssessments.js";
 import { v4 as uuidv4 } from "uuid";
 
-export function makeServer() {
+export async function makeServer() {
+  await db.open();
   let server = createServer({
     routes() {
       // DELETE assessment by assessmentId
