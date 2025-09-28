@@ -190,7 +190,7 @@ export function makeServer() {
         const { applicantId } = request.params;
 
         // Find the applicant
-        const applicant = applicants.find((a) => a.id === applicantId);
+        const applicant = applicants.find((a) => a.assessmentId === applicantId);
 
         if (!applicant) {
           return new Response(
@@ -219,7 +219,7 @@ export function makeServer() {
         let applicants = await db.applicants.toArray();
 
         // Find the applicant to update
-        const applicant = applicants.find((a) => a.id === applicantId);
+        const applicant = applicants.find((a) => a.assessmentId === applicantId);
         if (!applicant) {
           return new Response(404, {}, { error: "Applicant not found" });
         }
