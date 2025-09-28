@@ -62,7 +62,7 @@ const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
       <div className="w-full flex justify-between items-start">
         <h2
           className="text-xl font-semibold mb-1 "
-          onClick={() => navigate(`/jobs/${job.jobId}`)}
+          onClick={(e) => {e.stopPropagation();navigate(`/jobs/${job.jobId}`)}}
           {...attributes}
           {...listeners}
         >
