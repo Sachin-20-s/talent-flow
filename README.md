@@ -2,19 +2,19 @@
 TalentFlow is a React-based application that enables HR teams to post jobs, review candidates, and manage assessments for specific roles all in a frontend-only environment with local persistence and a simulated API.
 
 
-## Login <img width="640" height="576" alt="image" src="https://github.com/user-attachments/assets/2ed8d4dc-a8dc-4a95-ba64-772c2cff88b9" />
+## Login : <img width="640" height="576" alt="image" src="https://github.com/user-attachments/assets/2ed8d4dc-a8dc-4a95-ba64-772c2cff88b9" />
 
 ### Username :: Sachin_HR (Mind the case)
 ### Password :: Sachin@123 (Mind the case)
 
-# Login page : <img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/1f10c055-332c-43b7-aada-f7f6cc03f19b" />
-# Home page : <img width="1918" height="906" alt="image" src="https://github.com/user-attachments/assets/45c5719f-8e49-487c-9149-c99ca889c12c" />
-# All jobs posted page : <img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/c8b05224-1ed4-476a-a7c1-a9e3dc714aac" />
-# All Applicants page : <img width="1919" height="916" alt="image" src="https://github.com/user-attachments/assets/121511d5-9470-4121-81e4-3d81341e8f03" />
-# All assessments page : <img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/d337b314-9d1b-4d69-bd69-36c03440d7fa" />
-# Detailed Job view : <img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/aef0b774-f86b-485c-b8db-af162195cf66" />
-# Asessment Page : <img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/80112e6f-076f-42e4-ab1b-6493bd911454" />
-# Applicant profile : <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/050a0005-fc69-4cf0-be6c-986e664904c3" />
+## Login page : <img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/1f10c055-332c-43b7-aada-f7f6cc03f19b" />
+## Home page : <img width="1918" height="906" alt="image" src="https://github.com/user-attachments/assets/45c5719f-8e49-487c-9149-c99ca889c12c" />
+## All jobs posted page : <img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/c8b05224-1ed4-476a-a7c1-a9e3dc714aac" />
+## All Applicants page : <img width="1919" height="916" alt="image" src="https://github.com/user-attachments/assets/121511d5-9470-4121-81e4-3d81341e8f03" />
+## All assessments page : <img width="1919" height="910" alt="image" src="https://github.com/user-attachments/assets/d337b314-9d1b-4d69-bd69-36c03440d7fa" />
+## Detailed Job view : <img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/aef0b774-f86b-485c-b8db-af162195cf66" />
+## Asessment Page : <img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/80112e6f-076f-42e4-ab1b-6493bd911454" />
+## Applicant profile : <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/050a0005-fc69-4cf0-be6c-986e664904c3" />
 
 ### Jobs
 - List with pagination, filtering (title, status, tags).
