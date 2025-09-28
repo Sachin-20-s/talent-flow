@@ -19,29 +19,62 @@ const ApplicantsProfile = () => {
   const navigate = useNavigate();
 
   const [applicant, setApplicant] = useState(null);
-  const [jobsMap, setJobsMap] = useState({});
+  const [jobsMap, setJobsMap] = useState([]);
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState(false);
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setLoading(true);
+
+        
+  //       const res = await axios.get(`/applicant/${applicantId}`);
+  //       console.log(res.data);
+  //       setApplicant(res.data);
+  //       setJobsMap(res.data.appliedJobs);
+  //     } catch (err) {
+  //       console.error("Error fetching applicant:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [applicantId]);
+
   useEffect(() => {
+  const savedApplicant = localStorage.getItem("applicantProfile");
+  const savedJobs = localStorage.getItem("applicantJobs");
+
+  if (savedApplicant && savedJobs.length===0) {
+    setApplicant(JSON.parse(savedApplicant));
+    setJobsMap(JSON.parse(savedJobs));
+    setLoading(false);
+  } else {
     const fetchData = async () => {
       try {
         setLoading(true);
-
-        
         const res = await axios.get(`/applicant/${applicantId}`);
-        console.log(res.data);
         setApplicant(res.data);
         setJobsMap(res.data.appliedJobs);
+        localStorage.setItem("applicantProfile", JSON.stringify(res.data));
+        localStorage.setItem("applicantJobs", JSON.stringify(res.data.appliedJobs));
       } catch (err) {
         console.error("Error fetching applicant:", err);
       } finally {
         setLoading(false);
       }
     };
-
     fetchData();
-  }, [applicantId]);
+  }
+
+  // Save to localStorage whenever applicant or jobsMap changes
+  
+
+  
+}, [applicantId]);
+
 
   const isDark = theme === "dark";
 
