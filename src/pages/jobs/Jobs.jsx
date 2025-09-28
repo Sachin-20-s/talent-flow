@@ -245,7 +245,7 @@ const Jobs = () => {
             onDragEnd={handleDragEnd}
           >
             <SortableContext
-              items={jobs.map((j) => j.id)}
+              items={jobs.map((j) => j.jobId)}
               strategy={verticalListSortingStrategy}
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
