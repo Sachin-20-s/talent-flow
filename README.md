@@ -5,8 +5,6 @@ TalentFlow is a React-based application that enables HR teams to post jobs, revi
 ### Issues due SPA(Single page rendering) website on Render 
 #### Some deep links may not persist state perfectly after full reload
 
-## To check detailed view of jobs and assessments click on applicants -> click on any applicant name -> now click on any job titles present -> detailed view of job -> view assessments from the same page 
-
 ## Login : <img width="640" height="576" alt="image" src="https://github.com/user-attachments/assets/5edd34d0-607b-4f84-b381-f11f80070b46" />
 ### Username :: Sachin_HR (Mind the case)
 ### Password :: Sachin@123 (Mind the case)
@@ -19,6 +17,8 @@ TalentFlow is a React-based application that enables HR teams to post jobs, revi
 ## Detailed Job view : <img width="1919" height="909" alt="image" src="https://github.com/user-attachments/assets/aef0b774-f86b-485c-b8db-af162195cf66" />
 ## Asessment Page : <img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/80112e6f-076f-42e4-ab1b-6493bd911454" />
 ## Applicant profile : <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/050a0005-fc69-4cf0-be6c-986e664904c3" />
+
+## To check detailed view of jobs and assessments click on applicants -> click on any applicant name -> now click on any job titles present -> detailed view of job -> view assessments from the same page 
 
 ### Jobs
 - List with pagination, filtering (title, status, tags).
