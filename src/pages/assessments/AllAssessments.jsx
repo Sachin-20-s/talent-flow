@@ -78,7 +78,7 @@ const AllAssessments = () => {
 
         {selectedJobId && (
           <button
-            className="ml-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
+            className="ml-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition cursor-pointer"
             onClick={() => navigate(`/${selectedJobId}/assessments/create`)}
           >
             + Add Assessment

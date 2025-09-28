@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaCheckCircle, FaArchive, FaEllipsisV } from "react-icons/fa";
 import { updateJobStatus } from "../../jbSlice/jobSlice";
 import { useSortable } from "@dnd-kit/sortable";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
+const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
   const theme = useSelector((state) => state.theme.value);
   const jobs = useSelector((state) => state.jobs.value);
   const dispatch = useDispatch();
@@ -13,7 +13,8 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
   const menuRef = useRef(null);
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id, animateLayoutChanges: () => true });
-  console.log(job)
+  console.log(job);
+  const navigate = useNavigate();
 
   const style = {
     transform: transform
@@ -26,8 +27,6 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
     job.status === "active"
       ? "hover:shadow-green-400"
       : "hover:shadow-gray-400";
-
-  
 
   // Close menu if clicked outside
   useEffect(() => {
@@ -61,15 +60,15 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
       style={style}
     >
       <div className="w-full flex justify-between items-start">
-        <Link to={`/jobs/${job.jobId}`}>
-          <h2
-            className="text-xl font-semibold mb-1 "
-            {...attributes}
-            {...listeners}
-          >
-            {job.title}
-          </h2>
-        </Link>
+        <h2
+          className="text-xl font-semibold mb-1 "
+          onClick={() => navigate(`/jobs/${job.jobId}`)}
+          {...attributes}
+          {...listeners}
+        >
+          {job.title}
+        </h2>
+
         <div className="relative" ref={menuRef}>
           <button
             onClick={(e) => {
@@ -90,7 +89,10 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
                 }`}
             >
               <button
-                onClick={()=>{toggleStatus(job.jobId) ;setOpen(!open);}}
+                onClick={() => {
+                  toggleStatus(job.jobId);
+                  setOpen(!open);
+                }}
                 className={`w-full text-left px-4 py-2 rounded 
                   ${
                     theme === "dark" ? "hover:bg-gray-600" : "hover:bg-gray-200"
@@ -104,7 +106,7 @@ const JobsCard = ({ job, id,onDelete,toggleStatus }) => {
       </div>
       <div className="flex justify-between align-bottom w-70 ">
         <button
-        onClick={()=>onDelete(job.jobId)}
+          onClick={() => onDelete(job.jobId)}
           className={`px-4 py-2 rounded-lg font-semibold text-white transition-all duration-200 shadow-sm hover:shadow-md hover:scale-105 focus:outline-none backdrop-blur-sm ${
             theme === "dark"
               ? "bg-red-500/70 hover:bg-red-600/80"
