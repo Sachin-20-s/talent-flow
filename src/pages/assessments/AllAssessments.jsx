@@ -95,7 +95,7 @@ const AllAssessments = () => {
           {filteredAssessments.map((assessment) => (
             <a
               key={assessment.assessmentId}
-              href={`/assessments/${assessment.assessmentId}`}
+              onClick={() => navigate(`/assessments/${assessment.assessmentId}`)}
               className={`p-4 rounded-lg border hover:shadow-lg transition transform hover:-translate-y-1 ${
                 theme === "dark"
                   ? "bg-gray-700 border-gray-600 text-white"
