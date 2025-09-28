@@ -2,6 +2,11 @@
 TalentFlow is a React-based application that enables HR teams to post jobs, review candidates, and manage assessments for specific roles all in a frontend-only environment with local persistence and a simulated API.
 
 
+### Issues due SPA(Single page rendering) website on Render 
+#### Some deep links may not persist state perfectly after full reload
+
+## To check detailed view of jobs and assessments click on applicants -> click on any applicant name -> now click on any job titles present -> detailed view of job -> view assessments from the same page 
+
 ## Login : <img width="640" height="576" alt="image" src="https://github.com/user-attachments/assets/5edd34d0-607b-4f84-b381-f11f80070b46" />
 ### Username :: Sachin_HR (Mind the case)
 ### Password :: Sachin@123 (Mind the case)
@@ -81,9 +86,6 @@ npm install
 #### Drag & Drop: Implemented using dnd-kit for robust reorder and Kanban functionality. Trade-off: has a learning curve.
 #### Virtualization: Used react-window for smooth rendering of 1,000+ candidates. Trade-off: limited feature set compared to react-virtualized.
 
-
-### Known issues due SPA on Render 
-#### Some deep links may not persist state perfectly after full reload.
 
 ### Deployment
 #### Platform: Render
