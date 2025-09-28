@@ -54,21 +54,6 @@ TalentFlow is a React-based application that enables HR teams to post jobs, revi
 2. On refresh, IndexedDB restores persisted jobs, candidates, assessments.  
 3. Artificial latency (200–1200ms) + 5–10% error rate → tests resilience.  
 
-### Folder Structure (simplified)
-
-src/
-├── api/ # MirageJS / MSW mocks
-├── components/ # Reusable UI components
-├── features/
-│ ├── jobs/ # Jobs board, modals, reorder logic
-│ ├── candidates/ # Virtualized list, Kanban, profiles
-│ └── assessments/ # Builder + runtime form
-├── store/ # Redux slices
-├── utils/ # Helpers (slug generation, validators)
-├── App.jsx
-└── index.jsx
-
-
 ## Setup & Local Development
 
 ### Installation
