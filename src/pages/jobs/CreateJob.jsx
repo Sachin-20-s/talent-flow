@@ -29,10 +29,11 @@ const CreateJobPage = () => {
   const handleAddJob = async (jobData, action = "save") => {
     try {
       const newJob = { ...jobData };
-      await axios.post("/jobs", newJob);
+      console.log("newJob:::",newJob)
+      const res=await axios.post("/jobs", newJob);
+      console.log("akjemnkJWME",res.data)
       setAllJobs((prev) => [...prev, jobData]);
       alert("Job created successfully!"); // confirmation
-      console.log(jobData,"jhvbjhbjhb")
       if (action === "save") {
         navigate("/jobs", { replace: true });
       } else if (action === "addAssessment") {

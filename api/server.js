@@ -33,24 +33,27 @@ export async function makeServer() {
       });
 
       this.post("/assessments/created", async (schema, request) => {
+        await db.open();
         const newAssessment = JSON.parse(request.requestBody);
-
+        console.log("await db.assessments.add(assessmentWithTitle); return { assessment: assessmentWithTitle };",newAssessment)
         try {
           const jobId = newAssessment.jobId;
-
+          console.log("jobId::::::::::",newAssessment)
           // Get all assessments for this job
+
           let existing = await db.assessments
             .where("jobId")
             .equals(jobId)
             .toArray();
+          console.log("Exirintg::",existing)
 
-          const jobTitle = newAssessment.title;
+          const jobTitle =newAssessment.title;
 
           const counter = existing.length + 1;
 
           const assessmentWithTitle = {
             ...newAssessment,
-            jobId, // store as number
+            jobId,
             title: `${jobTitle}`,
           };
 
@@ -166,13 +169,13 @@ export async function makeServer() {
         }
 
         // Generate UUID for this job
-        const jobId = uuidv4();
+        
 
         // Add the job with jobId as UUID
-        await db.jobs.add({ ...attrs, slug, jobId });
+        const primaryKeyid=await db.jobs.add({ ...attrs, slug });
 
         // Fetch the added job
-        const newJob = await db.jobs.get(jobId);
+        const newJob = await db.jobs.get(primaryKeyid);
 
         return newJob;
       });

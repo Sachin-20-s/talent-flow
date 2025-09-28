@@ -159,7 +159,7 @@ const CreateJobForm = ({ allJobs, onSave, onCancel }) => {
           Add Assessment
         </button>
         <button
-          type="submit"
+          type="button"
           onClick={(e) => {e.preventDefault();navigate(-1,{replace:true})}}
           className="px-6 py-3 rounded-lg bg-red-500 text-white"
         >

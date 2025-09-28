@@ -98,22 +98,7 @@ const AssessmentBuilder = () => {
 
   const handleSubmit = async () => {
 
-    // const hasEmptyQuestions = sections.some(
-    //   (section) =>
-    //     !section.title ||
-    //     section.questions.some(
-    //       (q) =>
-    //         !q.text || (q.type.includes("choice") && q.options.length === 0)
-    //     )
-    // );
-
-    // if (hasEmptyQuestions) {
-    //   alert(
-    //     "Please fill in all section titles and question texts/options before submitting."
-    //   );
-    //   return;
-    // }
-
+    
     console.log(assessmentTitle)
 
     try {
@@ -127,7 +112,7 @@ const AssessmentBuilder = () => {
       console.log("payload    ", payload);
 
       const res = await axios.post("/assessments/created", payload);
-
+      console.log(res.data)
       alert("Assessment created successfully!");
       navigate(`/assessments/${res.data.assessment.assessmentId}`, {
         replace: true,
