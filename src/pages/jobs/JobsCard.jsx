@@ -10,9 +10,18 @@ const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
   const jobs = useSelector((state) => state.jobs.value);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false); // add this
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id, animateLayoutChanges: () => true });
+    useSortable({
+      id,
+      animateLayoutChanges: () => true,
+      onDragStart: () => setIsDragging(true),
+      onDragEnd: () => setIsDragging(false),
+    });
+
+  const menuRef = useRef(null);
+  // const { attributes, listeners, setNodeRef, transform, transition } =
+  //   useSortable({ id, animateLayoutChanges: () => true });
   console.log(job);
   const navigate = useNavigate();
 
@@ -60,9 +69,19 @@ const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
       style={style}
     >
       <div className="w-full flex justify-between items-start">
-        <h2
+        {/* <h2
           className="text-xl font-semibold mb-1 "
           onClick={(e) => {e.stopPropagation();navigate(`/jobs/${job.jobId}`)}}
+          {...attributes}
+          {...listeners}
+        >
+          {job.title}
+        </h2> */}
+        <h2
+          className="text-xl font-semibold mb-1 cursor-pointer"
+          onClick={(e) => {
+            if (!isDragging) navigate(`/jobs/${job.jobId}`);
+          }}
           {...attributes}
           {...listeners}
         >
