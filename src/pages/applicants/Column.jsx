@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ApplicantCard from "./ApplicantCard";
 import { useDroppable } from "@dnd-kit/core";
 import "./Application.css";
 
+
 const Column = ({ title, status, applicants }) => {
   const theme = useSelector((state) => state.theme.value);
   const { setNodeRef } = useDroppable({ id: status });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (applicants) setLoading(false);
+  }, [applicants]);
+
+  const renderSkeleton = () => {
+    const skeletons = Array.from({ length: 5 }).map((_, i) => (
+      <div
+        key={i}
+        className={`animate-pulse h-20 mb-4 rounded-xl ${
+          theme === "dark" ? "bg-gray-700" : "bg-gray-200"
+        }`}
+      />
+    ));
+    return skeletons;
+  };
 
   return (
     <div
@@ -39,13 +57,13 @@ const Column = ({ title, status, applicants }) => {
               alt="No applicants"
               className="w-30 h-28 mb-4"
             />
-            {/* <p
+             {/* <p
               className={`${
                 theme === "dark" ? "text-gray-400" : "text-gray-600"
               }`}
             >
               No applicants here yet.
-            </p> */}
+            </p>  */}
           </div>
         ) : (
           applicants.map((applicant, index) => (

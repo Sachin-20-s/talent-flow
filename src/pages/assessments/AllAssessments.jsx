@@ -96,7 +96,7 @@ const AllAssessments = () => {
             <a
               key={assessment.assessmentId}
               onClick={() => navigate(`/assessments/${assessment.assessmentId}`)}
-              className={`p-4 rounded-lg border hover:shadow-lg transition transform hover:-translate-y-1 ${
+              className={`p-4 rounded-lg border hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer ${
                 theme === "dark"
                   ? "bg-gray-700 border-gray-600 text-white"
                   : "bg-white border-gray-300 text-gray-900"

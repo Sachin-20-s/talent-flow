@@ -43,8 +43,7 @@ export function makeServer() {
             .equals(jobId)
             .toArray();
 
-          
-          const jobTitle = newAssessment.title
+          const jobTitle = newAssessment.title;
 
           const counter = existing.length + 1;
 
@@ -485,7 +484,25 @@ export function makeServer() {
         // Delete all matching entries (usually one)
         await db.jobs.where("jobId").equals(jobId).delete();
 
-        return { jobId };
+        let applicants = await db.applicants.toArray();
+        for (let applicant of applicants) {
+          if (applicant.jobIds.includes(jobId)) {
+            // Remove the deleted jobId
+            const updatedJobIds = applicant.jobIds.filter((id) => id !== jobId);
+
+            if (updatedJobIds.length === 0) {
+              // No more applied jobs → delete applicant
+              await db.applicants.delete(applicant.id);
+            } else {
+              // Update applicant with remaining jobs
+              await db.applicants.update(applicant.id, {
+                jobIds: updatedJobIds,
+              });
+            }
+          }
+        }
+
+        return { jobId, message: "Job and dependent applicants updated" };
       });
 
       this.patch("/jobs/reorder", async (schema, request) => {

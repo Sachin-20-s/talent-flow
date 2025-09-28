@@ -113,11 +113,11 @@ const Jobs = () => {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
 
-    const oldIndex = jobs.findIndex((j) => j.id === active.id);
-    const newIndex = jobs.findIndex((j) => j.id === over.id);
+    const oldIndex = jobs.findIndex((j) => j.jobId === active.id);
+    const newIndex = jobs.findIndex((j) => j.jobId === over.id);
 
     const newJobs = arrayMove(jobs, oldIndex, newIndex);
-    dispatch(setJobsOrder(newJobs));
+    setJobs(newJobs);
 
     try {
       const reordered = newJobs.map((job, index) => ({

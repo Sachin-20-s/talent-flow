@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { FaCheckCircle, FaArchive, FaEllipsisV } from "react-icons/fa";
+import { FaCheckCircle, FaArchive, FaEllipsisV,FaGripVertical  } from "react-icons/fa";
 import { updateJobStatus } from "../../jbSlice/jobSlice";
 import { useSortable } from "@dnd-kit/sortable";
 import { useNavigate } from "react-router-dom";
@@ -58,6 +58,8 @@ const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
 
   return (
     <div
+      // {...attributes}
+      //     {...listeners}
       className={`relative w-11/12 h-36 p-4 rounded-lg flex flex-col justify-center items-center text-center transform transition duration-200
         ${
           theme === "dark"
@@ -77,13 +79,23 @@ const JobsCard = ({ job, id, onDelete, toggleStatus }) => {
         >
           {job.title}
         </h2> */}
+        {/* Drag handle */}
+        <div
+          {...listeners} // drag works only here
+          {...attributes}
+          className="cursor-grab p-2 mr-2 text-gray-400 hover:text-gray-600 flex items-center"
+          onMouseDown={(e) => e.stopPropagation()} // prevents unwanted click triggers
+        >
+          <FaGripVertical className="w-5 h-5" />
+        </div>
         <h2
-          className="text-xl font-semibold mb-1 cursor-pointer"
+          className="text-xl font-semibold mb-1 cursor-pointer "
           onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation()
             if (!isDragging) navigate(`/jobs/${job.jobId}`);
           }}
-          {...attributes}
-          {...listeners}
+          
         >
           {job.title}
         </h2>
