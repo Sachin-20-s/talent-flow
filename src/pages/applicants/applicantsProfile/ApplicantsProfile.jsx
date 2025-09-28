@@ -47,7 +47,8 @@ const ApplicantsProfile = () => {
   const savedApplicant = localStorage.getItem("applicantProfile");
   const savedJobs = localStorage.getItem("applicantJobs");
 
-  if (savedApplicant && savedJobs.length===0) {
+  if (savedApplicant && savedJobs) {
+    console.log("sjfnakjfmnvlkamsfkvmaksvasfv",JSON.parse(savedApplicant))
     setApplicant(JSON.parse(savedApplicant));
     setJobsMap(JSON.parse(savedJobs));
     setLoading(false);
