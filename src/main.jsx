@@ -10,7 +10,7 @@ import { makeServer } from "../api/server.js";
 import JobsProvider from "./context/Jobsprovider.jsx";
 import ErrorBoundary from "./ErrorBoundary";
 
-// Start Mirage in both dev & production (since you have no real backend)
+// Start Mirage in both dev & production 
 if (import.meta.env.DEV || import.meta.env.PROD) {
   makeServer();
 }
